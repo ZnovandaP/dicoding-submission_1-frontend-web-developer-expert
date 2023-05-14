@@ -1,0 +1,301 @@
+@use "../utility/reset";
+@use "../utility/colors" as colors;
+@use "../utility/fonts" as fonts;
+@use "../utility/placement";
+@use "../utility/text";
+@use "../utility/touch-target";
+@use "../utility/shadow";
+@use "../utility/breakpoints";
+//component
+@use "../component/button";
+
+/* Implementing Mobile First Approach */
+
+header {
+  position: relative;
+
+  nav.active{
+    background-color: map-get(colors.$colors, 'background' );
+    @include shadow.box-shadow('md', map-get(colors.$colors, 'text-regular' ));
+    position: fixed;
+    top: 0;
+    opacity: 1;
+    transition: all .3s ease-in-out;
+
+    .nav-list.desktop{
+      .nav-link {
+        color: map-get(colors.$colors, 'text-regular' );
+      }
+    }
+    .nav-list.mobile{
+      background-color: map-get(colors.$colors, 'background' );
+      border: 2px solid map-get(colors.$colors, "primary");
+      .nav-link {
+        color: map-get(colors.$colors, 'text-regular' );
+      }
+    }
+  }
+
+  nav {
+    @include placement.flex-layout(row, space-between, center, 0);
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    height: 55px;
+    padding: 0.25rem 0;
+    width: 100%;
+    transition: all .3s ease-in-out;
+    // breakpoints
+    @include breakpoints.breakpoints("md") {
+      @include placement.flex-layout(row, space-between, center, 0rem);
+    }
+
+    .logo {
+      @include placement.flex-layout(row, center, center, 8px);
+      margin-left: 1rem;
+      position: relative;
+      // breakpoints
+      @include breakpoints.breakpoints("lg") {
+        margin-left: 3rem;
+      }
+
+      a.skip-content {
+        @include touch-target.base-link();
+        @include placement.flex-layout(row, center, center, 0);
+        @include text.paragraph-text(
+          1rem,
+          600,
+          map-get(colors.$colors, "text-white")
+        );
+        background-color: map-get(colors.$colors, "secondary");
+        border-radius: 1.5rem;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        z-index: -1;
+        opacity: 0;
+        width: 100%;
+        transform: translateY(-50%);
+        padding: 0 10px;
+        @include shadow.box-shadow(
+          "md",
+          map-get(colors.$colors, "text-regular")
+        );
+        transition: all 0.3s ease-in-out;
+      }
+
+      a.skip-content:focus {
+        opacity: 1;
+        z-index: 2;
+      }
+
+      img {
+        width: 35px;
+        height: 35px;
+      }
+      h1 {
+        @include text.heading-text(
+          1.2rem,
+          map-get(colors.$colors, "text-bold")
+        );
+        color: map-get(colors.$colors, "secondary");
+      }
+    }
+
+    button.hum-button {
+      @include touch-target.base-button();
+      @include placement.flex-layout(row, center, center, 0);
+      margin-right: 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease-in-out;
+      @include breakpoints.breakpoints("md") {
+        display: none;
+      }
+
+      i.button-icon {
+        font-size: 1.75rem;
+        color: map-get(colors.$colors, "secondary");
+        transition: all 0.3s ease-in-out;
+      }
+
+      //transition when button click
+      i.button-icon.fade {
+        opacity: 1;
+      }
+      i.button-icon.not-fade {
+        opacity: 0;
+      }
+    }
+
+    button.hum-button:hover > i {
+      color: map-get(colors.$colors, "tertiary");
+      scale: 1.1;
+    }
+
+    button.hum-button:focus > i {
+      color: map-get(colors.$colors, "tertiary");
+      scale: 1.1;
+    }
+
+    button.hum-button:focus {
+      border: 1px solid map-get(colors.$colors, "secondary");
+    }
+
+    .nav-list.mobile {
+      @include shadow.box-shadow("lg", map-get(colors.$colors, "text-regular"));
+      // display: none;
+      position: absolute;
+      top: 4.6rem;
+      right: 0.8rem;
+      transform: translateX(120%);
+      opacity: 0;
+      width: 50%;
+      height: 10rem;
+      border-radius: 0.5rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-list.mobile.hide{
+      display: none;
+    }
+
+    .nav-list.mobile.open.show{
+      @include placement.flex-layout(column, center, center, 1.5rem);
+    }
+
+    .nav-list.mobile.open {
+      transform: translateX(0%);
+      opacity: 1;
+      // @include placement.flex-layout(column, center, center, 1.5rem);
+      @include breakpoints.breakpoints("md") {
+        transform: translateX(120%);
+        display: none;
+      }
+    }
+
+    .nav-list.desktop {
+      display: none;
+      // breakpoints
+      @include breakpoints.breakpoints("md") {
+        @include placement.flex-layout(row, space-between, center, 0);
+        margin-right: 1rem;
+        transform: translateX(0);
+        width: 30%;
+        height: 100%;
+        background-color: transparent;
+      }
+      @include breakpoints.breakpoints("lg") {
+        margin-right: 3rem;
+      }
+    }
+
+    li {
+      position: relative;
+    }
+
+    .nav-link {
+      @include touch-target.base-link();
+      @include text.paragraph-text(
+        1rem,
+        500,
+        map-get(colors.$colors, "text-regular")
+      );
+      color: map-get(colors.$colors, "text-white");
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      background-color: map-get(colors.$colors, "tertiary");
+      bottom: -7px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0.5rem;
+      width: 0;
+      height: 4px;
+      transition: all 0.3s ease-in-out;
+    }
+    .nav-link:hover::after,
+    .nav-link:focus::after {
+      width: 40%;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus {
+      font-weight: 600;
+    }
+  }
+
+  .hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+
+    .hero-image {
+      @include text.paragraph-text(
+        2rem,
+        500,
+        map-get(colors.$colors, "danger")
+      );
+      height: 100vh;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+      // breakpoints
+      @include breakpoints.breakpoints("xl") {
+        min-width: 1000px;
+      }
+    }
+
+    .overlay {
+      @include placement.flex-layout(column, center, center, 1rem);
+      position: absolute;
+      top: 0;
+      background-color: rgba(17, 24, 39, 0.75);
+      width: 100%;
+      height: 100%;
+
+      h2,
+      h3 {
+        color: map-get(colors.$colors, "text-white");
+        text-align: center;
+      }
+
+      h2 {
+        @include text.heading-text(2.5rem, map-get(colors.$colors, "tertiary"));
+        // breakpoints
+        @include breakpoints.breakpoints("md") {
+          font-size: 3rem;
+        }
+        @include breakpoints.breakpoints("lg") {
+          font-size: 4rem;
+        }
+      }
+
+      h3 {
+        @include text.paragraph-text(
+          1.2rem,
+          500,
+          map-get(colors.$colors, "text-white")
+        );
+        padding: 0 0.25rem;
+        line-height: 1.5rem;
+        // breakpoints
+        @include breakpoints.breakpoints("md") {
+          font-size: 1.5rem;
+          line-height: 2.5rem;
+        }
+        @include breakpoints.breakpoints("lg") {
+          font-size: 2rem;
+          line-height: 3rem;
+        }
+      }
+    }
+  }
+}

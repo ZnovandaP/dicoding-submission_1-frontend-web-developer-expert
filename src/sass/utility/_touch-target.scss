@@ -1,0 +1,13 @@
+@mixin base-button() {
+  min-height: 44px;
+  min-width: 44px;
+  cursor: pointer;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+@mixin base-link() {
+  min-height: 44px;
+  min-width: 44px;
+  text-decoration: none;
+}

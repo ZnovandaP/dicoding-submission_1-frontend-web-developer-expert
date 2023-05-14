@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resto Radar</title>
+    <link
+      rel="shortcut icon"
+      href="./images/logo/logo.png"
+      type="image/x-icon"
+    />
+    <script
+      src="https://kit.fontawesome.com/7664686b67.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <section class="logo">
+          <a href="#main" class="skip-content" tabindex="1">Skip to content</a>
+          <img src="./images/logo/logo.png" alt="Logo perusahaan Resto Radar" />
+          <h1>Resto Radar</h1>
+        </section>
+        <button type="button" class="hum-button" title="Buka tautan navigasi">
+          <i
+            class="fa-solid fa-burger button-icon show fade"
+            aria-label="Humburger menu"
+          ></i>
+        </button>
+        <ul class="nav-list desktop">
+          <li><a class="nav-link" href="./index.html">Home</a></li>
+          <li><a class="nav-link" href="#">Favorite</a></li>
+          <li>
+            <a
+              class="nav-link"
+              href="https://znovandap-portfolio.netlify.app/"
+              target="_blank"
+              >About Us</a
+            >
+          </li>
+        </ul>
+        <ul class="nav-list mobile hide">
+          <li><a class="nav-link" href="./index.html">Home</a></li>
+          <li><a class="nav-link" href="#">Favorite</a></li>
+          <li>
+            <a
+              class="nav-link"
+              href="https://znovandap-portfolio.netlify.app/"
+              target="_blank"
+              >About Us</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <section class="hero">
+        <img
+          src="./images/heros/hero-image_2.jpg"
+          alt="Berbagai macam makanan di atas meja"
+          class="hero-image"
+          loading="lazy"
+        />
+        <div class="overlay">
+          <h2>Resto Radar</h2>
+          <h3>Beragam Pilihan Restoran Terbaik Hanya di Satu Platform.</h3>
+          <a href="#prolog" class="button">Pendahuluan</a>
+        </div>
+      </section>
+    </header>
+
+    <main id="main">
+      <section id="prolog" class="prolog">
+        <section class="image-prolog">
+          <img
+            src="./images/other/prolog.jpg"
+            alt="Foto suasana hening di suatu restoran"
+            \
+            class="prolog-image"
+            loading="lazy"
+          />
+          <div class="overlay">
+            <div class="title">
+              <h2>Momofuku Las Vegas</h2>
+              <p>
+                Photo by
+                <a
+                  href="https://unsplash.com/@ninjason?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+                  >Jason Leung</a
+                >
+                on
+                <a
+                  href="https://unsplash.com/photos/poI7DelFiVA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+                  >Unsplash</a
+                >
+              </p>
+            </div>
+          </div>
+        </section>
+        <article class="text-prolog">
+          <h2>Pendahuluan</h2>
+          <p>
+            Rorem ipsum, dolor sit amet consectetur adipisicing elit. Provident
+            voluptatem quos id nulla aliquid saepe unde doloribus dolores, odio
+            asperiores sapiente facilis sequi quia. Deleniti nam neque expedita
+            ipsam, maxime a. Sed reprehenderit voluptate ipsum deleniti tenetur
+            debitis, labore sequi, exercitationem ut alias aut omnis commodi
+            facilis velit reiciendis illo.
+          </p>
+        </article>
+      </section>
+
+      <section class="content">
+        <div class="title">
+          <h2>Daftar Restoran</h2>
+        </div>
+
+        <section class="card-container"></section>
+      </section>
+
+      <section class="contact">
+        <div class="title">
+          <h2>Kontak Kami</h2>
+        </div>
+
+        <form
+          action="https://formspree.io/f/xzbqwgrg"
+          method="POST"
+          autocomplete="off"
+          class="form-container"
+        >
+          <div class="input-field">
+            <label for="name">Nama Anda</label>
+            <input
+              id="name"
+              type="text"
+              name="Nama Pengirim"
+              required
+              class="input"
+              minlength="3"
+              maxlength="30"
+              placeholder="Masukan Nama anda"
+            />
+            <p class="message-text hide-notification notification-name">
+              Masukan, minimal 3 karakter.
+            </p>
+          </div>
+
+          <div class="line-form satu"></div>
+
+          <div class="input-field">
+            <label for="email">Email Anda</label>
+            <input
+              id="email"
+              type="email"
+              name="Email Pengirim"
+              required
+              class="input"
+              minlength="3"
+              maxlength="30"
+              placeholder="Masukan Email anda"
+            />
+            <p class="message-text hide-notification notification-email">
+              Format email tidak tepat.
+            </p>
+          </div>
+
+          <div class="line-form dua"></div>
+
+          <div class="input-field">
+            <label for="company">Instansi Anda</label>
+            <input
+              id="company"
+              type="text"
+              name="Nama Instansi Pengirim"
+              required
+              class="input"
+              minlength="3"
+              maxlength="30"
+              placeholder="Masukan Nama Instansi anda"
+            />
+            <p class="message-text hide-notification notification-company">
+              Masukan, minimal 3 karakter.
+            </p>
+          </div>
+
+          <div class="line-form tiga"></div>
+
+          <div class="input-field message">
+            <label for="message">Pesan Anda</label>
+            <textarea
+              name="Pesan dari Pengirim"
+              id="message"
+              class="input"
+              minlength="5"
+              placeholder="Masukan Pesan anda"
+            ></textarea>
+            <p class="message-text hide-notification notification-message">
+              Masukan, minimal 5 karakter.
+            </p>
+          </div>
+
+          <button
+            type="submit"
+            class="button-submit button not-allowed"
+            disabled
+          >
+            Send Message
+          </button>
+        </form>
+      </section>
+
+      <section class="modal-parent overlay">
+        <section class="modal">
+          <!-- modal head -->
+          <section class="modal-head">
+            <h2 class="modal-title">Informasi Restoran</h2>
+            <button
+              type="button"
+              class="modal-button-close"
+              title="Tutup modal pop-up"
+            >
+              <i class="fa-regular fa-circle-xmark" aria-label="Icon X"></i>
+            </button>
+          </section>
+          <!-- modal body -->
+          <section class="modal-body"></section>
+          <!-- modal foot -->
+          <section class="modal-foot">
+            <p>Resto Radar | copyright &copy;<span class="year"></span></p>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <footer>
+      <section class="company-footer">
+        <div class="logo">
+          <img src="./images/logo/logo.png" alt="Logo perusahaan Resto Radar" />
+          <h2>Resto Radar</h2>
+        </div>
+        <div class="company-copyright">
+          <h2>
+            Copyright &copy; <span class="year"></span> -
+            <span class="company-name">Resto Radar</span>
+          </h2>
+        </div>
+      </section>
+
+      <div class="line-footer"></div>
+
+      <section class="note-author">
+        <h2>
+          <i class="fa-solid fa-code code-icon" aria-label="Icon Code"></i> Front-end Web Developer
+          Expert
+        </h2>
+        <h2>
+          Dibuat dengan <i class="fa-solid fa-heart fa-beat heart-icon" aria-label="Icon Hati"></i>,
+          Zidane Novanda Putra
+        </h2>
+      </section>
+    </footer>
+  </body>
+</html>
