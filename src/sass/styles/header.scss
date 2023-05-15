@@ -14,24 +14,24 @@
 header {
   position: relative;
 
-  nav.active{
-    background-color: map-get(colors.$colors, 'background' );
-    @include shadow.box-shadow('md', map-get(colors.$colors, 'text-regular' ));
+  nav.active {
+    background-color: map-get(colors.$colors, "background");
+    @include shadow.box-shadow("md", map-get(colors.$colors, "text-regular"));
     position: fixed;
     top: 0;
     opacity: 1;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 
-    .nav-list.desktop{
+    .nav-list.desktop {
       .nav-link {
-        color: map-get(colors.$colors, 'text-regular' );
+        color: map-get(colors.$colors, "text-regular");
       }
     }
-    .nav-list.mobile{
-      background-color: map-get(colors.$colors, 'background' );
+    .nav-list.mobile {
+      background-color: map-get(colors.$colors, "background");
       border: 2px solid map-get(colors.$colors, "primary");
       .nav-link {
-        color: map-get(colors.$colors, 'text-regular' );
+        color: map-get(colors.$colors, "text-regular");
       }
     }
   }
@@ -45,7 +45,7 @@ header {
     height: 55px;
     padding: 0.25rem 0;
     width: 100%;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     // breakpoints
     @include breakpoints.breakpoints("md") {
       @include placement.flex-layout(row, space-between, center, 0rem);
@@ -144,7 +144,7 @@ header {
 
     .nav-list.mobile {
       @include shadow.box-shadow("lg", map-get(colors.$colors, "text-regular"));
-      // display: none;
+      padding: 1.5rem 0;
       position: absolute;
       top: 4.6rem;
       right: 0.8rem;
@@ -161,11 +161,11 @@ header {
       transition: all 0.3s ease-in-out;
     }
 
-    .nav-list.mobile.hide{
+    .nav-list.mobile.hide {
       display: none;
     }
 
-    .nav-list.mobile.open.show{
+    .nav-list.mobile.open.show {
       @include placement.flex-layout(column, center, center, 1.5rem);
     }
 
@@ -197,38 +197,38 @@ header {
 
     li {
       position: relative;
-    }
 
-    .nav-link {
-      @include touch-target.base-link();
-      @include text.paragraph-text(
-        1rem,
-        500,
-        map-get(colors.$colors, "text-regular")
-      );
-      color: map-get(colors.$colors, "text-white");
-    }
+      a.nav-link {
+        @include touch-target.base-link();
+        @include text.paragraph-text(
+          1rem,
+          500,
+          map-get(colors.$colors, "text-regular")
+        );
+        color: map-get(colors.$colors, "text-white");
+      }
 
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      background-color: map-get(colors.$colors, "tertiary");
-      bottom: -7px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 0.5rem;
-      width: 0;
-      height: 4px;
-      transition: all 0.3s ease-in-out;
-    }
-    .nav-link:hover::after,
-    .nav-link:focus::after {
-      width: 40%;
-    }
-
-    .nav-link:hover,
-    .nav-link:focus {
-      font-weight: 600;
+      a.nav-link::after {
+        content: "";
+        position: absolute;
+        background-color: map-get(colors.$colors, "tertiary");
+        bottom: -7px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 0.5rem;
+        width: 0;
+        height: 4px;
+        transition: all 0.3s ease-in-out;
+      }
+      a.nav-link:hover::after,
+      a.nav-link:focus::after {
+        width: 40%;
+      }
+  
+      a.nav-link:hover,
+      a.nav-link:focus {
+        font-weight: 600;
+      }
     }
   }
 

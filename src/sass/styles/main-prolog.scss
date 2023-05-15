@@ -65,6 +65,7 @@ main {
           }
 
           p {
+            @include placement.flex-layout(row, flex-start, center, .25rem);
             @include text.paragraph-text(
               0.75rem,
               400,

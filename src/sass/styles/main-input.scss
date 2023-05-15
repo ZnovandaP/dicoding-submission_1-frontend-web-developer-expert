@@ -82,7 +82,7 @@ main {
           letter-spacing: 1px;
           display: block;
           width: 95%;
-          height: 2.5rem;
+          min-height: 44px;
           border-radius: 1rem;
           border: 1px solid map-get(colors.$colors, "primary");
           padding-left: 1rem;
